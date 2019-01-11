@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>Vue - Beginner</title>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{ count }}</h1>
+	<button @click="verminderCounter">-</button>
+	<button v-on:click="vermeerderCounter">+</button>
+	<p v-if="isEven">Het getal is even</p>
+	<p v-else>Het getal is oneven</p>
+</div>
+
+<!--<div id="footer">
+	<p>copyright &copy; {{ date.getFullYear() }}</p>
+</div>-->
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script>
+/*	new Vue({
+		el:'#footer',
+		data:{
+		    date: new Date()
+		}
+	})*/
+	new Vue({
+            el:'#app',
+            data:{
+                count: 0
+            },
+            methods:{
+                verminderCounter: function(){
+                    this.count--
+                },
+	            vermeerderCounter: function(){
+                    this.count++;
+	            }
+            },
+			computed:{
+               isEven(){
+                   return this.count % 2 === 0
+               }
+			}
+	})
+	
+</script>
+</body>
+</html>
